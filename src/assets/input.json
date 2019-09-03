@@ -1,0 +1,108 @@
+{
+  "events": [
+    {
+      "_id": "e1",
+      "reference": "e1/2019",
+      "name": "Event 1 (Source)",
+      "desc": "Event 1 description",
+      "tags": [],
+      "type": "event.request",
+      "status": "done",
+      "date": "2019-02-01T12:00:00.000Z",
+      "done": true,
+      "duration": "P1D",
+      "producer": {
+        "_id": "a",
+        "name": "Actor a"
+      },
+      "consumer": {
+        "_id": "b",
+        "name": "Actor b"
+      },
+      "supervisor": {
+        "_id": "a",
+        "name": "Actor a"
+      },
+      "depends_on": []
+    },
+    {
+      "_id": "e2",
+      "reference": "e2/2019",
+      "name": "Event 2",
+      "desc": "Event 2",
+      "tags": [],
+      "type": "event.work",
+      "status": "late",
+      "date": "2019-02-11T12:00:00.000Z",
+      "done": false,
+      "duration": "P1D",
+      "producer": {
+        "_id": "b",
+        "name": "Actor b"
+      },
+      "consumer": {
+        "_id": "c",
+        "name": "Actor c"
+      },
+      "supervisor": {
+        "_id": "b",
+        "name": "Actor b"
+      },
+      "depends_on": [{
+        "_id": "e1",
+        "duration": "P10D"
+      }]
+    },
+    {
+      "_id": "e3",
+      "reference": "e3/2019",
+      "name": "Event 3 (Sink)",
+      "desc": "Event 3",
+      "tags": [],
+      "type": "event.delivery",
+      "status": "pending",
+      "date": "2019-02-17T12:00:00.000Z",
+      "done": false,
+      "duration": "P1D",
+      "producer": {
+        "_id": "c",
+        "name": "Actor c"
+      },
+      "consumer": {
+        "_id": "a",
+        "name": "Actor a"
+      },
+      "supervisor": {
+        "_id": "b",
+        "name": "Actor b"
+      },
+      "depends_on": [{
+        "_id": "e2",
+        "duration": "P5D"
+      }]
+    }
+  ],
+  "actors": [
+    {
+      "_id": "a",
+      "name": "Actor a",
+      "desc": "Actor a description",
+      "tags": [],
+      "type": "company"
+    },
+    {
+      "_id": "c",
+      "name": "Actor c",
+      "desc": "Actor c description",
+      "tags": [],
+      "type": "company"
+    },
+    {
+      "_id": "c",
+      "name": "Actor c",
+      "desc": "Actor c description",
+      "tags": [],
+      "type": "company"
+    }
+  ]
+}
